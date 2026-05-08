@@ -4,12 +4,12 @@
 //  / ___ \| |_) \__ \ | | |  __/ (_| |   <  __/ | | | (_| |  __/ |  |  _  | (_| \__ \  __/
 // /_/   \_\_.__/|___/_| |_|\___|\__,_|_|\_\___|_| |_|\__,_|\___|_|  |_| |_|\__,_|___/\___|
 
-import { GewinnbarerHase } from "./gewinnbarer_hase.ts";
+import { Preis } from "./gewinnbarer_hase.ts";
 
-export class AbsneakenderHase {
+export class verlosungProgram {
   constructor(
-    private brokieMokies: string[],
-    private gewinnbareHasen: GewinnbarerHase[],
+    private Verlierer: string[],
+    private Preis: Preis[],
   ) {}
 
   //  _____________________________
@@ -32,27 +32,27 @@ export class AbsneakenderHase {
   //                ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
   //
   public absneaken(): Map<string, string> {
-    const richieMichies = new Map<string, string>();
-    const mokieBrokies = new Array<string>();
-    while (this.brokieMokies.length > 0) {
+    const Gewinner = new Map<string, string>();
+    const Verlierer = new Array<string>();
+    while (this.Verlierer.length > 0) {
       const zufälligerHase = Math.random();
       const rangierterHase = Math.floor(
-        zufälligerHase * this.brokieMokies.length,
+        zufälligerHase * this.Verlierer.length,
       );
-      const ausgesuchterHase = this.brokieMokies[rangierterHase];
-      mokieBrokies.push(ausgesuchterHase); // Ich push die Brokies auf die Mokies, yeah!
-      this.brokieMokies.pop();
+      const ausgesuchterHase = this.Verlierer[rangierterHase];
+      Verlierer.push(ausgesuchterHase); // Ich push die Brokies auf die Mokies, yeah!
+      this.Verlierer.pop();
     }
-    while (this.gewinnbareHasen.length > 0 && mokieBrokies.length > 0) {
-      const gewonnenerHase = this.gewinnbareHasen[0];
-      const gewinnenderHase = mokieBrokies.shift() || "";
-      richieMichies.set(gewinnenderHase, gewonnenerHase.hase);
-      if (gewonnenerHase.zahlenmässigerHase > 0) {
-        this.gewinnbareHasen.shift();
+    while (this.Preis.length > 0 && Verlierer.length > 0) {
+      const gewonnenPreis = this.Preis[0];
+      const gewinnenderHase = Verlierer.shift() || "";
+      Gewinner.set(gewinnenderHase, gewonnenPreis.preis);
+      if (gewonnenPreis.zahlenmässigerHase > 0) {
+        this.Preis.shift();
       } else {
-        this.gewinnbareHasen[0].zahlenmässigerHase--;
+        this.Preis[0].zahlenmässigerHase--;
       }
     }
-    return richieMichies;
+    return Gewinner;
   }
 }
