@@ -35,22 +35,22 @@ export class verlosungProgram {
     const Gewinner = new Map<string, string>();
     const Verlierer = new Array<string>();
     while (this.Verlierer.length > 0) {
-      const zufälligerHase = Math.random();
-      const rangierterHase = Math.floor(
-        zufälligerHase * this.Verlierer.length,
+      const zufallZahl = Math.random();
+      const gerundetZahl = Math.floor(
+        zufallZahl * this.Verlierer.length,
       );
-      const ausgesuchterHase = this.Verlierer[rangierterHase];
-      Verlierer.push(ausgesuchterHase); // Ich push die Brokies auf die Mokies, yeah!
+      const ausgesuchter = this.Verlierer[gerundetZahl];
+      Verlierer.push(ausgesuchter); // Ich push die Brokies auf die Mokies, yeah!
       this.Verlierer.pop();
     }
     while (this.Preis.length > 0 && Verlierer.length > 0) {
       const gewonnenPreis = this.Preis[0];
-      const gewinnenderHase = Verlierer.shift() || "";
-      Gewinner.set(gewinnenderHase, gewonnenPreis.preis);
-      if (gewonnenPreis.zahlenmässigerHase > 0) {
+      const gewinner = Verlierer.shift() || "";
+      Gewinner.set(gewinner, gewonnenPreis.preis);
+      if (gewonnenPreis.anzahlPreise > 0) {
         this.Preis.shift();
       } else {
-        this.Preis[0].zahlenmässigerHase--;
+        this.Preis[0].anzahlPreise--;
       }
     }
     return Gewinner;

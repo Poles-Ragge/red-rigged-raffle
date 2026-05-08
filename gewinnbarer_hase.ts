@@ -15,18 +15,18 @@ export class Preis {
   //
   constructor(
     private Preis: string,
-    private derZahlenmässigeHase: number,
+    private gewonnennerPreis: number,
   ) {}
 
   public get preis(): string {
     return this.Preis;
   }
 
-  public get zahlenmässigerHase(): number {
-    return this.derZahlenmässigeHase;
+  public get anzahlPreise(): number {
+    return this.gewonnennerPreis;
   }
 
-  public set zahlenmässigerHase(neuerPreis: number) {
-    this.derZahlenmässigeHase = neuerPreis;
+  public set anzahlPreise(neuerPreis: number) {
+    this.gewonnennerPreis = neuerPreis;
   }
 }
